@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Tinkoff Test Task</string>
+    <string name="tab_label_hot">Hot</string>
+    <string name="tab_label_last">Last</string>
+    <string name="tab_label_popular">Popular</string>
+    <string name="toolbar_label">Developers Life</string>
 </resources>
