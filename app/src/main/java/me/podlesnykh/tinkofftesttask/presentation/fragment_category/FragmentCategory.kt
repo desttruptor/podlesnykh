@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AlphaAnimation
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -16,6 +17,7 @@ import me.podlesnykh.tinkofftesttask.databinding.FragmentPostBinding
 import me.podlesnykh.tinkofftesttask.presentation.fragment_random.FragmentRandomViewModel
 import me.podlesnykh.tinkofftesttask.presentation.models.Category
 import me.podlesnykh.tinkofftesttask.presentation.models.Post
+
 
 class FragmentCategory(private val category: Category) : Fragment() {
 
