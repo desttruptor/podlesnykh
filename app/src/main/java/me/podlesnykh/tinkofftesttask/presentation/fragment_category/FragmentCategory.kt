@@ -17,6 +17,7 @@ import me.podlesnykh.tinkofftesttask.presentation.fragment_random.FragmentRandom
 import me.podlesnykh.tinkofftesttask.presentation.models.Category
 import me.podlesnykh.tinkofftesttask.presentation.models.Post
 
+
 class FragmentCategory(private val category: Category) : Fragment() {
 
     private var _binding: FragmentPostBinding? = null

@@ -4,7 +4,6 @@ import me.podlesnykh.tinkofftesttask.network.pojo.PostsPage
 import me.podlesnykh.tinkofftesttask.network.pojo.ResultItem
 import me.podlesnykh.tinkofftesttask.presentation.models.Category
 import me.podlesnykh.tinkofftesttask.presentation.models.Post
-import retrofit2.Response
 import java.io.IOException
 
 class Repository {
