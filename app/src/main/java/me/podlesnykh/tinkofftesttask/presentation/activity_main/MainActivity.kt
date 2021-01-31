@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
             getString(R.string.tab_label_random)
         )
         binding.viewpager.adapter = adapter
+        binding.viewpager.isUserInputEnabled = false
 
         TabLayoutMediator(binding.tabLayout, binding.viewpager) { tab, position ->
             tab.text = names[position]
