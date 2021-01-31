@@ -2,10 +2,11 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    app:cardElevation="8dp"
-    android:layout_height="match_parent"
-    app:cardCornerRadius="15dp">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="15dp"
+    android:maxHeight="400dp"
+    app:cardElevation="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -34,15 +35,27 @@
 
         <TextView
             android:id="@+id/post_text"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:maxLines="4"
             android:padding="16dp"
-            android:text="ExampleTextExampleTextExampleTextExampleTextExampleText"
             android:textColor="@color/white"
             android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/error_loading_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/baseline_error_outline_black_48dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/post_image"
-            tools:ignore="HardcodedText" />
+            app:layout_constraintEnd_toEndOf="@id/post_image"
+            app:layout_constraintStart_toStartOf="@id/post_image"
+            app:layout_constraintTop_toTopOf="@id/post_image" />
 
         <ProgressBar
             android:id="@+id/post_progress_bar"

@@ -63,7 +63,7 @@
         android:id="@+id/iv_error_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="8dp"
         android:contentDescription="@null"
         android:src="@drawable/baseline_cloud_off_black_24dp"
         android:visibility="gone"
@@ -80,6 +80,7 @@
         android:textAllCaps="false"
         android:textSize="14sp"
         android:visibility="gone"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,7 +96,6 @@
         android:textColor="#1479ed"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_error_message" />
 

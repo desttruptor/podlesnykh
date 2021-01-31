@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
         initViewPager()
     }
 
@@ -24,7 +23,8 @@ class MainActivity : AppCompatActivity() {
         val names = listOf(
             getString(R.string.tab_label_hot),
             getString(R.string.tab_label_last),
-            getString(R.string.tab_label_popular)
+            getString(R.string.tab_label_popular),
+            getString(R.string.tab_label_random)
         )
         binding.viewpager.adapter = adapter
 

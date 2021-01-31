@@ -1,5 +1,5 @@
 package me.podlesnykh.tinkofftesttask.presentation.models
 
-enum class Categories {
-    HOT, LAST, POPULAR
+enum class Category {
+    HOT, LAST, POPULAR, RANDOM
 }

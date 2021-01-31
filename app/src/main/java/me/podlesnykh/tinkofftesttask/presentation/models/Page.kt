@@ -1,10 +1,10 @@
 package me.podlesnykh.tinkofftesttask.presentation.models
 
 data class Page(
-    val result: List<ModelResultItem>
+    val result: List<Post>
 )
 
-data class ModelResultItem(
+data class Post(
     val description: String,
     val gifURL: String,
     val id: Int

@@ -6,4 +6,5 @@
     <string name="toolbar_label" translatable="false">Developers Life</string>
     <string name="label_error_loading_message">A network error occurred. Check your Internet connection.</string>
     <string name="label_retry_button">Retry</string>
+    <string name="tab_label_random">Random</string>
 </resources>

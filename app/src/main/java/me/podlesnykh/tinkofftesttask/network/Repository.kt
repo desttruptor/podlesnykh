@@ -1,33 +1,25 @@
 package me.podlesnykh.tinkofftesttask.network
 
 import me.podlesnykh.tinkofftesttask.network.pojo.PostsPage
-import me.podlesnykh.tinkofftesttask.presentation.models.Categories
-import me.podlesnykh.tinkofftesttask.presentation.models.ModelResultItem
-import me.podlesnykh.tinkofftesttask.presentation.models.Page
-import retrofit2.awaitResponse
+import me.podlesnykh.tinkofftesttask.network.pojo.ResultItem
+import me.podlesnykh.tinkofftesttask.presentation.models.Category
+import me.podlesnykh.tinkofftesttask.presentation.models.Post
+import retrofit2.Response
 import java.io.IOException
 
 class Repository {
-    suspend fun getLatestPostsByPage(page: Int) =
-        try {
-            val response = ApiInstance.api.getLatestPostsByPage(page).awaitResponse()
-            if (response.isSuccessful) {
-                NetworkResponse.Success(
-                    mapper(response.body() ?: PostsPage(emptyList(), 0))
-                )
-            } else {
-                NetworkResponse.NetworkError("Unknown error")
-            }
-        } catch (error: IOException) {
-            NetworkResponse.NetworkError(error.message ?: "Unknown error")
-        }
 
-    suspend fun getHotPostsByPage(page: Int) =
-        try {
-            val response = ApiInstance.api.getHotPostsByPage(page).awaitResponse()
-            if (response.isSuccessful) {
+    suspend fun getPostsByCategory(page: Int, category: Category): Any {
+        return try {
+            val response = when (category) {
+                Category.LAST -> ApiInstance.api.getLatestPostsByPage(page)
+                Category.HOT -> ApiInstance.api.getHotPostsByPage(page)
+                Category.POPULAR -> ApiInstance.api.getTopPostsByPage(page)
+                else -> return Any()
+            }
+            if (response.isSuccessful && !response.body()?.result.isNullOrEmpty()) {
                 NetworkResponse.Success(
-                    mapper(response.body() ?: PostsPage(emptyList(), 0))
+                    mapPost(response.body() ?: PostsPage(emptyList(), 0))
                 )
             } else {
                 NetworkResponse.NetworkError("Unknown error")
@@ -35,13 +27,14 @@ class Repository {
         } catch (error: IOException) {
             NetworkResponse.NetworkError(error.message ?: "Unknown error")
         }
+    }
 
-    suspend fun getTopPostsByPage(page: Int) =
-        try {
-            val response = ApiInstance.api.getTopPostsByPage(page).awaitResponse()
+    suspend fun getRandomPost(): Any {
+        return try {
+            val response = ApiInstance.api.getRandomPost()
             if (response.isSuccessful) {
-                NetworkResponse.Success(
-                    mapper(response.body() ?: PostsPage(emptyList(), 0))
+                NetworkResponse.SuccessRandomPost(
+                    mapRandomPost(response.body() ?: ResultItem("", "", 0))
                 )
             } else {
                 NetworkResponse.NetworkError("Unknown error")
@@ -49,16 +42,20 @@ class Repository {
         } catch (error: IOException) {
             NetworkResponse.NetworkError(error.message ?: "Unknown error")
         }
+    }
 
     // transforms nullable response to entity for ui
-    private fun mapper(nullablePage: PostsPage): Page {
+    private fun mapPost(nullablePage: PostsPage): List<Post> {
         val listOfPosts = nullablePage.result
-        return Page(listOfPosts?.map { nullablePost ->
-            ModelResultItem(
+        return listOfPosts?.map { nullablePost ->
+            Post(
                 description = nullablePost.description ?: "",
                 gifURL = nullablePost.gifURL ?: "",
                 id = nullablePost.id ?: 0
             )
-        } ?: emptyList())
+        } ?: emptyList()
     }
+
+    private fun mapRandomPost(nullablePost: ResultItem) =
+        Post(nullablePost.description ?: "", nullablePost.gifURL ?: "", nullablePost.id ?: 0)
 }
