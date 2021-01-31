@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import me.podlesnykh.tinkofftesttask.R
 import me.podlesnykh.tinkofftesttask.databinding.FragmentPostBinding
 
 class FragmentLast : Fragment() {

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tinkoff Test Task</string>
+    <string name="tab_label_hot">Горячие</string>
+    <string name="tab_label_last">Последние</string>
+    <string name="tab_label_popular">Популярные</string>
+    <string name="label_error_loading_message">Произошла ошибка при загрузке данных. Проверьте подключение к сети.</string>
+    <string name="label_retry_button">Повторить</string>
+</resources>

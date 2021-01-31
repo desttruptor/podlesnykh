@@ -3,5 +3,7 @@
     <string name="tab_label_hot">Hot</string>
     <string name="tab_label_last">Last</string>
     <string name="tab_label_popular">Popular</string>
-    <string name="toolbar_label">Developers Life</string>
+    <string name="toolbar_label" translatable="false">Developers Life</string>
+    <string name="label_error_loading_message">A network error occurred. Check your Internet connection.</string>
+    <string name="label_retry_button">Retry</string>
 </resources>
